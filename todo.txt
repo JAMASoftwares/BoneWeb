@@ -1,0 +1,6 @@
+
+Set animation for dropdwon links
+1. Set .open class in css: closed => max-height=0, open => max height=auto
+2. Add animation property
+
+

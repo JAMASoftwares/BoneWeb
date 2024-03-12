@@ -1,0 +1,109 @@
+<!DOCTYPE html> 
+{% extends "base.html" %}
+<!-- Page title -->
+{% block title %}
+<title>BoneWeb - Home</title>
+{% endblock title %}
+<!-- Style block -->
+{% block styles %}
+<!-- No additional styles -->
+{% endblock styles %}
+
+<!-- Content block -->
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+
+<div class="row">
+
+    <!-- LEFT COLUMN -->
+    <div class="leftcolumn">
+        <!-- CARD 1 -->
+        <div class="card wide_table">
+            {% for layer_key, layer_value in dict3D.items() %}
+            <h2>System Info: {{ layer_key }}</h2>
+            <div class='table_container'>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th> <!-- Add a column header for the keys -->
+                            {% for col in headers_per_layer[layer_key] %}
+                            <th>{{ col }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row_key, row_value in layer_value.items() %}
+                        <tr>
+                            <td class='key_cell'>{{ row_key }}</td> <!-- Include the key as the first cell in each row -->
+                            {% if row_value is mapping %}
+                            {% for col in headers_per_layer[layer_key] %}
+                            <td>{{ row_value[col] if col in row_value else '' }}</td>
+                            {% endfor %}
+                            {% else %}
+                            <td colspan="{{ headers_per_layer[layer_key]|length + 1 }}">{{ row_value }}</td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- CARD 2 -->
+        <div class="card narrow_table">
+            {% for layer_key, layer_value in dict3D.items() %}
+            <h2>System Info: {{ layer_key }}</h2>
+            {% for sub_key, sub_value in layer_value.items() %}
+            <div class='table_container'>
+                <table class="first_col_empty">
+                    <thead>
+                        <tr>
+                            <th colspan='3'>{{ sub_key }}</th> <!-- Second-level key spans all columns -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if sub_value is mapping %}
+                        {% for key, value in sub_value.items() %}
+                        <tr>
+                            <!--<td class='empty_cell'></td>-->
+                            <td class='key_cell'>{{ key }}</td>
+                            <td class='value_cell'>{{ value }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <!-- Handle non-mapping values -->
+                        <tr>
+                            <td colspan="3">{{ sub_value }}</td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            {% endfor %}
+        {% endfor %}
+        </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="rightcolumn">
+        <!-- CARD: RIGHT-A -->
+        <div class="card">
+            <div class="flex_horizontal">
+                <h2>SYSTEM INFO</h2>
+                <label class="switch">
+                    <input id='sysinfo_toggle' type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <!-- CARD: RIGHT-B -->
+        <div class="card">
+
+        </div>
+    </div>
+</div>
+<!-- JAVASCRIPTS -->
+<script type="text/javascript" src={{ url_for( 'static', filename='js/global.js') }}></script>
+<script type="text/javascript" src={{ url_for( 'static', filename='js/sysinfo.js') }}></script>
+{% endblock content %}

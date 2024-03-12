@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %} 
+    <!-- Content Goes here -->
+    {% endblock title %}
+
+    <!-- This scales website for mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/x-icon" href={{ url_for( 'static', filename='img/favicon.ico') }}>
+    <link rel="stylesheet" type="text/css" href={{ url_for( 'static', filename='css/layout.css') }}/>
+    <link rel="stylesheet" type="text/css" href={{ url_for( 'static', filename='css/image.css') }}/>
+    <link rel="stylesheet" type="text/css" href={{ url_for( 'static', filename='css/text.css') }}/>
+    <link rel="stylesheet" type="text/css" href={{ url_for( 'static', filename='css/style.css') }}/>
+    <link rel="stylesheet" type="text/css" href={{ url_for( 'static', filename='css/buttons.css') }}/>
+    <link rel="stylesheet" type="text/css" href={{ url_for( 'static', filename='css/navbar.css') }}/>
+    <link rel="stylesheet" type="text/css" href={{ url_for( 'static', filename='css/table.css') }}/>
+    <link rel="stylesheet" type="text/css" href={{ url_for( 'static', filename='css/screens.css') }}/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- This is for responsive navbar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Page specific styles -->
+    {% block styles %}
+    <!-- Content placed here -->
+    {% endblock styles %}
+    
+</head>
+<body>
+    <!-- Global site header -->
+    <div class="header">
+        <img class="site-logo" src={{ url_for( 'static', filename='img/bb-logo-trans.png') }}>
+        <h1 id="site_name">BoneWeb</h1>
+    </div>
+    <div id='navcpu_container'>
+        <div id="navbar">
+            <a id='a_menu' class='links zoom1'><i class="fa fa-angle-double-down" style="font-size:36px"></i></a> <!-- Menu icon (hamburger icon) -->
+            <div id='nav_links' class="navbar_upper">
+                <a class="links" href="/"><i class="fa fa-bar-chart"></i> C-Panel</a>
+                <a class="links" href="/sysinfo"><i class="fa fa-linux"></i> System</a>
+                <a id='a_links' class="links"><i class="fa fa-link"></i> Links</a>
+            </div>
+            <div id="drop_links" class="navbar_lower">
+                <a class='drop_links' href="https://docs.beagleboard.org/latest/">Beagleboard.org</a>
+                <a class='drop_links' href="https://adafruit-beaglebone-io-python.readthedocs.io/en/latest/index.html">Adafruit-BBIO</a>
+                <a class='drop_links' href="https://kilobaser.com/beaglebone-black-gpios/">GPIO Maps</a>
+                <a class='drop_links' href="https://www.dummies.com/article/technology/computers/hardware/beaglebone/how-to-control-beaglebones-gpios-144964/">GPIO Control</a>
+                <a class='drop_links' href="https://www.beagleboard.org/distros">BB-Images</a>
+            </div>
+        </div>
+        <div id="cpuram_container">
+            <div class="cpuram">
+                <i class="icon_cpu icon"></i>
+                <a class='cpu' id="cpu_usage">CPU: _ %</a>
+            </div>
+            <div class="cpuram">
+                <i class="icon_ram icon"></i>
+                <a class='cpu' id="ram_usage">RAM: _ %</a>
+            </div>
+        </div>
+    </div>
+
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
+    
+    <div class="footer center">
+        <img id='jamasf' src={{ url_for( 'static', filename='img/logo_jamasoft.png') }}>
+    </div>
+</body>
+</html>

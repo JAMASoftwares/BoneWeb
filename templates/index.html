@@ -1,0 +1,174 @@
+<!DOCTYPE html> 
+{% extends "base.html" %}
+<!-- Page title -->
+{% block title %}
+<title>BoneWeb - Home</title>
+{% endblock title %}
+<!-- Style block -->
+{% block styles %}
+
+{% endblock styles %}
+
+<!-- Content block -->
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>-->
+
+<div class="row">
+    <!-- LEFT COLUMN -->
+    <div class="leftcolumn">
+        <div class="card">
+            <h2>CONNECTOR MAP</h2>
+            <div class="gallery-a">
+                <!-- Main Image -->
+                <div class="main-image">
+                    <img  class="zoomable-image" src={{ url_for( 'static', filename='img/bbb_gpio_pinmap.png') }} id="mainImage">
+                </div>
+                <!-- Thumbnails -->
+                <div class="thumbnails">
+                    <img src={{ url_for( 'static', filename='img/bbb_pinmap.png') }} class="thumb">
+                    <img src={{ url_for( 'static', filename='img/bbb_gpio_pinmap.png') }} class="thumb">
+                    <img src={{ url_for( 'static', filename='img/bb-board-white.PNG') }} class="thumb">
+                </div>
+            </div>
+        </div>
+        <div id="lower" class="card">
+            <h2>BONE GALLERY</h2>
+            <div class="gallery" id="gallery">
+                <div class="zoom1"><img class="zoomable-image" src={{ url_for( 'static', filename='img/bb-board-f1.jpg') }}></div>
+                <div class="zoom1"><img class="zoomable-image" src={{ url_for( 'static', filename='img/bb-board-f2.jpg') }}></div>
+                <div class="zoom1"><img class="zoomable-image" src={{ url_for( 'static', filename='img/bb-board-up.jpg') }}></div>
+                <div class="zoom1"><img class="zoomable-image" src={{ url_for( 'static', filename='img/bb-board-bottom.jpg') }}></div>
+                <div class="zoom1"><img class="zoomable-image" src={{ url_for( 'static', filename='img/bb-case1.jpg') }}></div>
+                <div class="zoom1"><img class="zoomable-image" src={{ url_for( 'static', filename='img/bb-case2.jpg') }}></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="rightcolumn">
+
+        <div class="card">
+            <div class="flex_horizontal">
+                <h2>{{ result.get('title') }}</h2>
+                <label class="switch">
+                    <input id='gpio_toggle' type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div id="gpio_panel" class="flex_horizontal accordion_panel">
+                <div class="pin_layout" id='chipp9'>
+                    {% for key, value in result['P9'].items() %}
+                        {% if value[2] == '0' and value[0] != "in" %}
+                        <a href={{ value[3] }} class='pin zoom state_0'>{{ key }}</a>
+                        {% elif value[2] == '1' and value[0] != "in" %}
+                        <a href={{ value[3] }} class='pin zoom state_1'>{{ key }}</a>
+                        {% else %}
+                        <a href={{ value[3] }} class='pin state_d'>{{ key }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="pin_layout" id='chipp8'>
+                    {% for key, value in result['P8'].items() %}
+                        {% if value[2] == '0' and value[0] != "in" %}
+                        <a href={{ value[3] }} class='pin zoom state_0'>{{ key }}</a>
+                        {% elif value[2] == '1' and value[0] != "in" %}
+                        <a href={{ value[3] }} class='pin zoom state_1'>{{ key }}</a>
+                        {% else %}
+                        <a href={{ value[3] }} class='pin state_d'>{{ key }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="flex_horizontal">
+                <h2>SETUP I/O</h2>
+                <label class="switch">
+                    <input id='setio_toggle' type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div id="setio_panel" class="flex_horizontal accordion_panel">
+                <div class="pin_layout">
+                    {% for key, value in result['P9'].items() %}
+                        {% if value[0] == 'out' %}
+                        <a href={{ value[1] }} class='pin zoom state_out'>{{ key }}</a>
+                        {% elif value[0] == 'in' %}
+                        <a href={{ value[1] }} class='pin zoom state_in'>{{ key }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="pin_layout">
+                    {% for key, value in result['P8'].items() %}
+                        {% if value[0] == 'out' %}
+                        <a href={{ value[1] }} class='pin zoom state_out'>{{ key }}</a>
+                        {% elif value[0] == 'in' %}
+                        <a href={{ value[1] }} class='pin zoom state_in'>{{ key }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="flex_horizontal">
+                <h2>TABLE-AIN [V]</h2>
+                <label class="switch">
+                    <input id='ain_toggle' type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div id="vtable" class="accordion_panel"></div>
+        </div>
+
+        <div class="card">
+            <div class="flex_horizontal">
+                <h2>BAR-AIN [V]</h2>
+                <label class="switch">
+                    <input id='chart_toggle' type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div id="barplot" class="">
+                <canvas id="barchart_canvas" width="100%" height="100%"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="flex_horizontal">
+                <h2>LINE-AIN [V]</h2>
+                <label class="switch">
+                    <input id='realtime_toggle' type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div id="lineplot" class="">
+                <canvas id="linechart_canvas" width="100%" height="100%"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="flex_horizontal">
+                <h2>FIND PROJECT</h2>
+                <div class="flex_vertical">
+                    <a href="https://github.com/JABE22"><img id="git-logo" class="center zoom1" src={{ url_for( 'static', filename='img/git-logo-hor.png') }}></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- INCLUDE JAVASCRIPTS -->
+    <script type="text/javascript" src={{ url_for( 'static', filename='js/global.js') }}></script>
+    <script type="text/javascript" src={{ url_for( 'static', filename='js/gpioctrl.js') }}></script>
+    <script type="text/javascript" src={{ url_for('static', filename='js/gpiosetio.js') }}></script>
+    <script type="text/javascript" src={{ url_for('static', filename='js/aintable.js') }}></script>
+    <script type="text/javascript" src={{ url_for( 'static', filename='js/plotbar.js') }}></script>
+    <script type="text/javascript" src={{ url_for( 'static', filename='js/plotline.js') }}></script>
+    <script type="text/javascript" src={{ url_for( 'static', filename='js/gallery.js') }}></script>
+</div>
+{% endblock content %}
