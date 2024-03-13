@@ -8,13 +8,13 @@ Python Flask/Flask SocketIO web server and client to control GPIO pins of the Be
 `flask run`
 
 # Make sure required Python dependcies are installed (at least)
-`pip install Flask`
-`pip install Flask_SocketIO`
-`pip install Adafruit_BBIO`
+- `pip install Flask`
+- `pip install Flask_SocketIO`
+- `pip install Adafruit_BBIO`
 
 ## To avoid websocket connection errors in WSGI environment, install:
-`pip install eventlet gevent`
+- `pip install eventlet gevent`
 # Running using gunicorn
-`gunicorn -k eventlet -w 1 myapp:app`
+- `gunicorn -k eventlet -w 1 myapp:app`
 # or
-`gunicorn -k gevent -w 1 myapp:app`
+- `gunicorn -k gevent -w 1 myapp:app`
