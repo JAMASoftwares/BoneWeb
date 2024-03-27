@@ -1,0 +1,89 @@
+Adafruit-BBIO==1.2.0
+attrs==20.3.0
+Automat==20.2.0
+bcrypt==3.1.7
+blinker==1.4
+chardet==4.0.0
+click==7.1.2
+colorama==0.4.4
+constantly==15.1.0
+cryptography==3.3.2
+dbus-python==1.2.16
+deluge==2.0.3
+distro==1.5.0
+distro-info==1.0+deb11u1
+Django==2.2.28
+eventlet==0.35.2
+├── dnspython [required: >=1.15.0, installed: 2.6.1]
+└── greenlet [required: >=1.0, installed: 3.0.3]
+Flask-Cors==4.0.0
+└── Flask [required: >=0.9, installed: 1.1.2]
+Flask-SocketIO==5.3.6
+├── Flask [required: >=0.9, installed: 1.1.2]
+└── python-socketio [required: >=5.0.2, installed: 5.11.1]
+    ├── bidict [required: >=0.21.0, installed: 0.23.1]
+    └── python-engineio [required: >=4.8.0, installed: 4.9.0]
+        └── simple-websocket [required: >=0.10.0, installed: 1.0.0]
+            └── wsproto [required: Any, installed: 1.2.0]
+                └── h11 [required: >=0.9.0,<1, installed: 0.14.0]
+GeoIP==1.3.2
+gevent==24.2.1
+├── greenlet [required: >=2.0.0, installed: 3.0.3]
+├── zope.event [required: Any, installed: 5.0]
+│   └── setuptools [required: Any, installed: 52.0.0]
+└── zope.interface [required: Any, installed: 5.2.0]
+gnuplotlib==0.41
+├── numpy [required: Any, installed: 1.19.5]
+└── numpysane [required: >=0.3, installed: 0.40]
+    └── numpy [required: Any, installed: 1.19.5]
+gpiod==2.1.3
+gunicorn==21.2.0
+└── packaging [required: Any, installed: 23.2]
+hyperlink==19.0.0
+imutils==0.5.4
+incremental==17.5.0
+itsdangerous==1.1.0
+Jinja2==2.11.3
+Mako==1.1.3
+MarkupSafe==1.1.1
+olefile==0.46
+Pillow==8.1.2
+pipdeptree==2.16.2
+└── pip [required: >=23.1.2, installed: 24.0]
+psutil==5.9.8
+py-cpuinfo==9.0.0
+pyasn1==0.4.8
+pyasn1-modules==0.2.1
+pygame==1.9.6
+PyGObject==3.38.0
+└── pycairo [required: >=1.11.1, installed: 1.16.2]
+PyHamcrest==1.9.0
+pyinotify==0.9.6
+pyOpenSSL==20.0.1
+python-apt==2.2.1
+python-libtorrent==1.2.9
+pytz==2021.1
+pyxattr==0.7.2
+pyxdg==0.27
+rencode==1.0.6
+requests==2.31.0
+├── certifi [required: >=2017.4.17, installed: 2024.2.2]
+├── charset-normalizer [required: >=2,<4, installed: 3.3.2]
+├── idna [required: >=2.5,<4, installed: 3.6]
+└── urllib3 [required: >=1.21.1,<3, installed: 2.2.0]
+service-identity==18.1.0
+setproctitle==1.2.1
+simplejson==3.17.2
+six==1.16.0
+sqlparse==0.4.1
+supervisor==4.2.2
+Twisted==20.3.0
+unattended-upgrades==0.1
+virtualenv==20.25.1
+├── distlib [required: >=0.3.7,<1, installed: 0.3.8]
+├── filelock [required: >=3.12.2,<4, installed: 3.13.1]
+└── platformdirs [required: >=3.9.1,<5, installed: 4.2.0]
+Werkzeug==1.0.1
+wheel==0.34.2
+xdg==5
+youtube-dl==2021.6.6

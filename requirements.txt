@@ -1,0 +1,147 @@
+Package                          Version
+-------------------------------- -----------
+Adafruit-BBIO                    1.2.0
+Adafruit-Blinka                  8.20.1
+adafruit-circuitpython-busdevice 5.2.6
+adafruit-circuitpython-requests  2.0.1
+adafruit-circuitpython-typing    1.9.4
+Adafruit-PlatformDetect          3.49.0
+Adafruit-PureIO                  1.1.11
+attrs                            20.3.0
+Automat                          20.2.0
+bcrypt                           3.1.7
+bidict                           0.23.1
+blinker                          1.4
+certifi                          2024.2.2
+chardet                          4.0.0
+charset-normalizer               3.3.2
+click                            7.1.2
+colorama                         0.4.4
+constantly                       15.1.0
+cryptography                     3.3.2
+dbus-python                      1.2.16
+deluge                           2.0.3
+distlib                          0.3.8
+distro                           1.5.0
+distro-info                      1.0+deb11u1
+Django                           2.2.28
+dnspython                        2.6.1
+eventlet                         0.35.2
+filelock                         3.13.1
+Flask                            1.1.2
+Flask-Cors                       4.0.0
+Flask-SocketIO                   5.3.6
+GeoIP                            1.3.2
+gevent                           24.2.1
+gnuplotlib                       0.41
+gpiod                            2.1.3
+greenlet                         3.0.3
+gunicorn                         21.2.0
+h11                              0.14.0
+hyperlink                        19.0.0
+idna                             3.6
+imutils                          0.5.4
+incremental                      17.5.0
+itsdangerous                     1.1.0
+Jinja2                           2.11.3
+Mako                             1.1.3
+MarkupSafe                       1.1.1
+numpy                            1.19.5
+numpysane                        0.40
+olefile                          0.46
+packaging                        23.2
+Pillow                           8.1.2
+pip                              20.3.4
+platformdirs                     4.2.0
+psutil                           5.9.8
+py-cpuinfo                       9.0.0
+pyasn1                           0.4.8
+pyasn1-modules                   0.2.1
+pycairo                          1.16.2
+pyftdi                           0.55.0
+pygame                           1.9.6
+PyGObject                        3.38.0
+PyHamcrest                       1.9.0
+pyinotify                        0.9.6
+pyOpenSSL                        20.0.1
+pyserial                         3.5
+python-apt                       2.2.1
+python-engineio                  4.9.0
+python-libtorrent                1.2.9
+python-socketio                  5.11.1
+pytz                             2021.1
+pyusb                            1.2.1
+pyxattr                          0.7.2
+pyxdg                            0.27
+rencode                          1.0.6
+requests                         2.31.0
+service-identity                 18.1.0
+setproctitle                     1.2.1
+setuptools                       52.0.0
+simple-websocket                 1.0.0
+simplejson                       3.17.2
+six                              1.16.0
+sqlparse                         0.4.1
+supervisor                       4.2.2
+Twisted                          20.3.0
+typing-extensions                4.7.1
+unattended-upgrades              0.1
+urllib3                          2.2.0
+virtualenv                       20.25.1
+Werkzeug                         1.0.1
+wheel                            0.34.2
+wsproto                          1.2.0
+xdg                              5
+youtube-dl                       2021.6.6
+zope.event                       5.0
+zope.interface                   5.2.0
+
+
+# System-wide Opencv
+sudo apt-get install python3-opencv
+
+dpkg -l | grep opencv
+
+ii  libopencv-calib3d-dev:armhf           4.5.1+dfsg-5                                  armhf        development files for libopencv-calib3d4.5
+ii  libopencv-calib3d4.5:armhf            4.5.1+dfsg-5                                  armhf        computer vision Camera Calibration library
+ii  libopencv-contrib-dev:armhf           4.5.1+dfsg-5                                  armhf        development files for libopencv-contrib4.5
+ii  libopencv-contrib4.5:armhf            4.5.1+dfsg-5                                  armhf        computer vision contrlib library
+ii  libopencv-core-dev:armhf              4.5.1+dfsg-5                                  armhf        development files for libopencv-core4.5
+ii  libopencv-core4.5:armhf               4.5.1+dfsg-5                                  armhf        computer vision core library
+ii  libopencv-dev                         4.5.1+dfsg-5                                  armhf        development files for opencv
+ii  libopencv-dnn-dev:armhf               4.5.1+dfsg-5                                  armhf        development files for libopencv-dnn4.5
+ii  libopencv-dnn4.5:armhf                4.5.1+dfsg-5                                  armhf        computer vision Deep neural network module
+ii  libopencv-features2d-dev:armhf        4.5.1+dfsg-5                                  armhf        development files for libopencv-features2d4.5
+ii  libopencv-features2d4.5:armhf         4.5.1+dfsg-5                                  armhf        computer vision Feature Detection and Descriptor Extraction library
+ii  libopencv-flann-dev:armhf             4.5.1+dfsg-5                                  armhf        development files for libopencv-flann4.5
+ii  libopencv-flann4.5:armhf              4.5.1+dfsg-5                                  armhf        computer vision Clustering and Search in Multi-Dimensional spaces library
+ii  libopencv-highgui-dev:armhf           4.5.1+dfsg-5                                  armhf        development files for libopencv-highgui4.5
+ii  libopencv-highgui4.5:armhf            4.5.1+dfsg-5                                  armhf        computer vision High-level GUI and Media I/O library
+ii  libopencv-imgcodecs-dev:armhf         4.5.1+dfsg-5                                  armhf        development files for libopencv-imgcodecs4.5
+ii  libopencv-imgcodecs4.5:armhf          4.5.1+dfsg-5                                  armhf        computer vision Image Codecs library
+ii  libopencv-imgproc-dev:armhf           4.5.1+dfsg-5                                  armhf        development files for libopencv-imgproc4.5
+ii  libopencv-imgproc4.5:armhf            4.5.1+dfsg-5                                  armhf        computer vision Image Processing library
+ii  libopencv-ml-dev:armhf                4.5.1+dfsg-5                                  armhf        development files for libopencv-ml4.5
+ii  libopencv-ml4.5:armhf                 4.5.1+dfsg-5                                  armhf        computer vision Machine Learning library
+ii  libopencv-objdetect-dev:armhf         4.5.1+dfsg-5                                  armhf        development files for libopencv-objdetect4.5
+ii  libopencv-objdetect4.5:armhf          4.5.1+dfsg-5                                  armhf        computer vision Object Detection library
+ii  libopencv-photo-dev:armhf             4.5.1+dfsg-5                                  armhf        development files for libopencv-photo4.5
+ii  libopencv-photo4.5:armhf              4.5.1+dfsg-5                                  armhf        computer vision computational photography library
+ii  libopencv-shape-dev:armhf             4.5.1+dfsg-5                                  armhf        development files for libopencv-shape4.5
+ii  libopencv-shape4.5:armhf              4.5.1+dfsg-5                                  armhf        computer vision shape descriptors and matchers library
+ii  libopencv-stitching-dev:armhf         4.5.1+dfsg-5                                  armhf        development files for libopencv-stitching4.5
+ii  libopencv-stitching4.5:armhf          4.5.1+dfsg-5                                  armhf        computer vision image stitching library
+ii  libopencv-superres-dev:armhf          4.5.1+dfsg-5                                  armhf        development files for libopencv-superres4.5
+ii  libopencv-superres4.5:armhf           4.5.1+dfsg-5                                  armhf        computer vision Super Resolution library
+ii  libopencv-video-dev:armhf             4.5.1+dfsg-5                                  armhf        development files for libopencv-video4.5
+ii  libopencv-video4.5:armhf              4.5.1+dfsg-5                                  armhf        computer vision Video analysis library
+ii  libopencv-videoio-dev:armhf           4.5.1+dfsg-5                                  armhf        development files for libopencv-videoio4.5
+ii  libopencv-videoio4.5:armhf            4.5.1+dfsg-5                                  armhf        computer vision Video I/O library
+ii  libopencv-videostab-dev:armhf         4.5.1+dfsg-5                                  armhf        development files for libopencv-videostab4.5
+ii  libopencv-videostab4.5:armhf          4.5.1+dfsg-5                                  armhf        computer vision video stabilization library
+ii  libopencv-viz-dev:armhf               4.5.1+dfsg-5                                  armhf        development files for libopencv-viz4.5
+ii  libopencv-viz4.5:armhf                4.5.1+dfsg-5                                  armhf        computer vision 3D data visualization library
+ii  libopencv4.5-java                     4.5.1+dfsg-5                                  armhf        Java bindings for the computer vision library
+ii  libopencv4.5-jni                      4.5.1+dfsg-5                                  armhf        Java jni library for the computer vision library
+ii  opencv-data                           4.5.1+dfsg-5                                  all          development data for opencv
+ii  python3-opencv                        4.5.1+dfsg-5                                  armhf        Python 3 bindings for the computer vision library 
