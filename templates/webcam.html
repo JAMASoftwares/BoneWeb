@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+<!-- Page title -->
+{% block title %}
+<title>Live Stream</title>
+{% endblock title %}
+<!-- Style block -->
+{% block styles %}
+
+{% endblock styles %}
+
+{% block cpuram %}
+<div id="cpuram_container">
+    <div class="cpuram">
+        <i class="icon_cpu icon"></i>
+        <a class='cpu' id="cpu_usage">CPU: _ %</a>
+    </div>
+    <div class="cpuram">
+        <i class="icon_ram icon"></i>
+        <a class='cpu' id="ram_usage">RAM: _ %</a>
+    </div>
+</div>
+{% endblock cpuram %}
+
+<!-- Content block -->
+{% block content %}
+
+<div class="row">
+    <!-- LEFT COLUMN -->
+    <div class="leftcolumn">
+        <div class="card">
+	    <div class="flex_vertical">
+               <button id="playButton">Play</button>
+               <video id="video" controls autoplay></video>
+            </div>
+        </div>
+    </div>
+    <!-- RIGHT COLUMN -->
+    <div class="rightcolumn">
+        <div class="card"></div>
+        <div class="card"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+  var video = document.getElementById('video');
+  var playButton = document.getElementById('playButton');
+
+  playButton.addEventListener('click', function() {
+    if (Hls.isSupported()) {
+      var hls = new Hls();
+      hls.loadSource('http://192.168.6.2/hls/stream.m3u8'); // Adjust this URL as needed
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = 'http://192.168.6.2/hls/stream.m3u8'; // Adjust this URL as needed
+      video.addEventListener('canplay', function() {
+        video.play();
+      });
+    }
+  });
+</script>
+
+{% endblock content %}
