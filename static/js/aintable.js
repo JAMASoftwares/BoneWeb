@@ -11,17 +11,21 @@ var tableSocket = null;
 // Toggle switch event listener to show or hide the table
 document.getElementById("ain_toggle").addEventListener('change', function() {
     if (this.checked) {
-        tableSocket = io.connect({query:{'clientName':client_tbl,'deviceInfo':deviceInfo}});
-        // Set up event listeners on the newly established socket
-        tableSocket.on('connect', () => {
-            console.log('Connected to BoneWeb: Table[V]');
-        });
-        // Socket.io event listener for receiving AIN data
-        tableSocket.on('sensor_data', function(data) {
-            updateTableFromDict(data['data']);
-        });
-        // Set Bar Chart visible
-        table_container.classList.toggle('open');
+        if (!tableSocket) {
+            tableSocket = io.connect({query:{'clientName':client_tbl,
+                                            'clientType':SENSOR_CLIENT,
+                                            'deviceInfo':deviceInfo}});
+            // Set up event listeners on the newly established socket
+            tableSocket.on('connect', () => {
+                console.log('Connected to BoneWeb: Table[V]');
+            });
+            // Socket.io event listener for receiving AIN data
+            tableSocket.on('sensor_data', function(data) {
+                updateTableFromDict(data['data']);
+            });
+            // Set Bar Chart visible
+            table_container.classList.toggle('open');
+        }
     } else {
         table_container.classList.toggle('open');
         // Disconnect from the Socket.IO server if connected

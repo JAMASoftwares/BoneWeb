@@ -1,19 +1,17 @@
 .button {
-    font-size: 16px;
     text-decoration: none;
-    background-color: var(--site-subcolor-first);
-    color: var(--site-color-bg);
-    padding: 10px;
-    margin: 3px;
-    border: 1px solid #CCCCCC;
+    background-color: var(--site-subcolor-second);
+    color: var(--text-subcolor-inverse);
+    padding: 15px;
+    border: 1px solid var(--site-main-color);
     border-radius: 5px;
     cursor: pointer;
 }
 
 .button:hover {
-    transition: transform .4s;
-    transform: scale(1.1);
-    background-color: var(--site-subcolor-third);
+    transition: transform .2s;
+    transform: scale(1.02);
+    background-color: var(--site-subcolor-first);
     color: black;
 }
 
@@ -85,12 +83,12 @@ a:active {
 }
 
 .state_in {
-    background-color: #A97F2C;
+    background-color: var(--button-color-off);
     color: var(--text-subcolor-inverse);
 }
 
 .state_out {
-    background-color: #F26222;
+    background-color: var(--site-subcolor-second);
     color: var(--text-subcolor-inverse);
 }
 
@@ -158,4 +156,10 @@ input:checked+.slider:before {
     transform: scale(1.1);
     cursor: pointer;
     z-index: 10;
+}
+
+#save_button, #capture_button {
+    min-width: 150px;
+    width: 50%;
+
 }

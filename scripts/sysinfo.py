@@ -87,7 +87,6 @@ def get_net_info_as_dict():
                 if_data['broadcast_ip'] = address.broadcast
             elif str(address.family) == 'AddressFamily.AF_PACKET':
                 if_data['mac_address'] = address.address
-                if_data['netmask'] = address.netmask
         
         net_data[interface_name] = if_data
         

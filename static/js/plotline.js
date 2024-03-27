@@ -39,7 +39,9 @@ document.getElementById("realtime_toggle").addEventListener('change', function()
 function connectLineSocket() {
 	if (!lineSocket) {
 		// Establish socketio connection
-		lineSocket = io({query:{'clientName':client_line,'deviceInfo':deviceInfo}});
+		lineSocket = io({query:{'clientName':client_line,
+		                        'clientType':SENSOR_CLIENT,
+								'deviceInfo':deviceInfo}});
 		// Set up event listeners on the newly established socket
 		lineSocket.on('connect', () => {
 			console.log('Connected to BoneWeb: Line[V]');

@@ -22,6 +22,10 @@
     <!-- This is for responsive navbar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+
     <!-- Page specific styles -->
     {% block styles %}
     <!-- Content placed here -->
@@ -40,6 +44,8 @@
             <div id='nav_links' class="navbar_upper">
                 <a class="links" href="/"><i class="fa fa-bar-chart"></i> C-Panel</a>
                 <a class="links" href="/sysinfo"><i class="fa fa-linux"></i> System</a>
+                <a class="links" href="/camera"><i class="fa fa-camera"></i> IP-Camera</a>
+                <a class="links" href="/webcam"><i class="fa fa-camera"></i> WEB-Camera</a>
                 <a id='a_links' class="links"><i class="fa fa-link"></i> Links</a>
             </div>
             <div id="drop_links" class="navbar_lower">
@@ -50,16 +56,9 @@
                 <a class='drop_links' href="https://www.beagleboard.org/distros">BB-Images</a>
             </div>
         </div>
-        <div id="cpuram_container">
-            <div class="cpuram">
-                <i class="icon_cpu icon"></i>
-                <a class='cpu' id="cpu_usage">CPU: _ %</a>
-            </div>
-            <div class="cpuram">
-                <i class="icon_ram icon"></i>
-                <a class='cpu' id="ram_usage">RAM: _ %</a>
-            </div>
-        </div>
+        {% block cpuram %}
+        <!-- Insert CPU and RAM usage components if incuded in the page -->
+        {% endblock cpuram %}
     </div>
 
     {% block content %}

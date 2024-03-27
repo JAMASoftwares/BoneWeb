@@ -122,12 +122,22 @@ i {
     margin: 10px;
     object-fit: cover;
     cursor: pointer;
+    transition: transform 0.2s;
+    /* Smooth zoom-in effect */
     /* Indicates that thumbnails are clickable */
 }
 
 .thumb:hover {
     transform: scale(1.05);
     /* Slightly enlarges thumbnails on hover for a more dynamic effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 8px var(--site-subcolor-first);
     /* Enhances the shadow on hover for a popping effect */
+}
+
+.responsive-100 {
+    width: 100%;
+}
+
+.capture {
+    margin-bottom: 10px;
 }

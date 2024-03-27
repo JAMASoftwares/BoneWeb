@@ -10,7 +10,9 @@ document.getElementById("chart_toggle").addEventListener('change', function() {
         // Connect to the Socket.IO server if not already connected
         if (!barSocket) {
             // Establish a new connection
-            barSocket = io({query:{'clientName':client_bar,'deviceInfo':deviceInfo}});
+            barSocket = io({query:{'clientName':client_bar,
+                                   'clientType':SENSOR_CLIENT,
+                                   'deviceInfo':deviceInfo}});
             // Set up event listeners on the newly established socket
             barSocket.on('connect', () => {
                 console.log('Connected to BoneWeb: Bar[V]');

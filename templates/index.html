@@ -9,12 +9,21 @@
 
 {% endblock styles %}
 
+{% block cpuram %}
+<div id="cpuram_container">
+    <div class="cpuram">
+        <i class="icon_cpu icon"></i>
+        <a class='cpu' id="cpu_usage">CPU: _ %</a>
+    </div>
+    <div class="cpuram">
+        <i class="icon_ram icon"></i>
+        <a class='cpu' id="ram_usage">RAM: _ %</a>
+    </div>
+</div>
+{% endblock cpuram %}
+
 <!-- Content block -->
 {% block content %}
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>-->
 
 <div class="row">
     <!-- LEFT COLUMN -->
@@ -24,13 +33,13 @@
             <div class="gallery-a">
                 <!-- Main Image -->
                 <div class="main-image">
-                    <img  class="zoomable-image" src={{ url_for( 'static', filename='img/bbb_gpio_pinmap.png') }} id="mainImage">
+                    <img  class="zoomable-image" src={{ url_for( 'static', filename='img/BBB_pinmap.png') }} id="mainImage">
                 </div>
                 <!-- Thumbnails -->
                 <div class="thumbnails">
-                    <img src={{ url_for( 'static', filename='img/bbb_pinmap.png') }} class="thumb">
+                    <img src={{ url_for( 'static', filename='img/BBB_pinmap.png') }} class="thumb">
                     <img src={{ url_for( 'static', filename='img/bbb_gpio_pinmap.png') }} class="thumb">
-                    <img src={{ url_for( 'static', filename='img/bb-board-white.PNG') }} class="thumb">
+                    <img src={{ url_for( 'static', filename='img/bb-board-white.png') }} class="thumb">
                 </div>
             </div>
         </div>
@@ -52,7 +61,7 @@
 
         <div class="card">
             <div class="flex_horizontal">
-                <h2>{{ result.get('title') }}</h2>
+                <h2>GPIO-PIN CTRL</h2>
                 <label class="switch">
                     <input id='gpio_toggle' type="checkbox">
                     <span class="slider"></span>
@@ -164,6 +173,7 @@
 
     <!-- INCLUDE JAVASCRIPTS -->
     <script type="text/javascript" src={{ url_for( 'static', filename='js/global.js') }}></script>
+    <script type="text/javascript" src={{ url_for( 'static', filename='js/cpuram.js') }}></script>
     <script type="text/javascript" src={{ url_for( 'static', filename='js/gpioctrl.js') }}></script>
     <script type="text/javascript" src={{ url_for('static', filename='js/gpiosetio.js') }}></script>
     <script type="text/javascript" src={{ url_for('static', filename='js/aintable.js') }}></script>

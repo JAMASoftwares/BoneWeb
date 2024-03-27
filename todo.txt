@@ -1,6 +1,8 @@
 
-Set animation for dropdwon links
-1. Set .open class in css: closed => max-height=0, open => max height=auto
-2. Add animation property
+The following features/style updates are in the queue
+
+#1: A massive website style/outlook update
+#2: Sensor data panel including thermometer, photodiode, etc.
+#3: Web page for servo motor control using joystic  
 
 

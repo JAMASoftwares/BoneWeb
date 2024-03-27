@@ -1,9 +1,10 @@
+// This is a string for server on socket connection
+SENSOR_CLIENT = 'sensors';
 
-// Global variables
-GLOBAL_CLIENT = "CpuRam"
+var deviceInfo = null;
+getDeviceInfoString().then(infoStr => deviceInfo = infoStr);
 
-const deviceInfo = getDeviceInfoString();
-
+// GLOBAL SETTING and FUNCTIONS
 async function getDeviceInfoString() {
     let deviceInfoStr = '';
 
@@ -29,30 +30,10 @@ async function getDeviceInfoString() {
     return deviceInfoStr;
 }
 
-getDeviceInfoString().then(infoStr => console.log(infoStr));
-
-
 // Prevent default event
 function disableHref(event) {
     event.preventDefault();
 }
-
-// 
-$(document).ready(function(){
-    var socket = io.connect('http://' + location.hostname + ':' + location.port, { query: { 'clientName': GLOBAL_CLIENT }});
-    socket.on('cpuram_data', function(msg) {
-        $('#cpu_usage').html('CPU: ' + msg.cpu_usage + ' %');
-        $('#ram_usage').html('RAM: ' + msg.ram_usage + ' %');
-    });
-    socket.on('connect', function(msg) {
-        socket.emit('cpuram-start', {taskType: 'cpuramData', client_name: GLOBAL_CLIENT,
-                                     msg: "Request: Start CPU-RAM usage stream!"})
-    });
-    socket.on('message', function(msg) {
-        console.log(msg);
-    });
-});
-
 
 document.addEventListener('DOMContentLoaded', function() {
     const amenu = document.getElementById('a_menu');
@@ -79,9 +60,3 @@ document.getElementById('a_links').addEventListener('click', function () {
     this.classList.toggle('active_drop');
     //document.getElementById('navbar').style.gridRow = 1;
 });
-
-
-
-
-//createTable(8,2,'systable','sysinfo_table');
-//createTable(8,3,ctx='vtable',tid='volt_table');
