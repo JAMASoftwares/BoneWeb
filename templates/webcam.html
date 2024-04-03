@@ -41,6 +41,10 @@
     </div>
 </div>
 
+<!-- INCLUDE JAVASCRIPTS -->
+<script type="text/javascript" src={{ url_for( 'static', filename='js/global.js') }}></script>
+<script type="text/javascript" src={{ url_for( 'static', filename='js/cpuram.js') }}></script>
+
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
   var video = document.getElementById('video');
@@ -62,5 +66,6 @@
     }
   });
 </script>
+
 
 {% endblock content %}
