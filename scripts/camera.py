@@ -8,7 +8,8 @@ from PIL import Image
 
 # Replace the below URL with your IP camera's URL
 rtsp_stream_url = 'rtsp://admin:admin@194.197.66.163:8554/1/h264major'
-snapshot_uri = 'http://194.197.66.163/jpgimage/1/image.jpg'
+# snapshot_uri = 'http://194.197.66.163/jpgimage/1/image.jpg'
+snapshot_uri = 'http://admin:hikivisio18@192.168.1.64/ISAPI/Streaming/channels/101/picture'
 
 def generate_frames():
     cap = VideoCapture(rtsp_stream_url)
